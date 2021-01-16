@@ -2,7 +2,7 @@ import React, { Fragment, useState, useReducer, useEffect } from 'react';
 import axios from 'axios';
 import { MoviesList } from './MovieList';
 import { SearchBar } from './SearchBar';
-import { NominationsList } from './NominationList';
+import { NominationList } from './NominationList';
 import { movieReducer } from '../reducer/movieReducer';
 import './MovieSearch.css';
 
@@ -43,8 +43,8 @@ export const MovieSearch = (): React.ReactElement => {
       <main>
         <SearchBar term={term} onChange={(term: string) => setTerm(term)} />
         <div className="list-container">
-          <MoviesList term={term} movieList={state.movieList} />
-          <NominationsList />
+          <MoviesList term={term} movieList={state.movieList} dispatch={dispatch} />
+          <NominationList nominationList={state.nominationList} />
         </div>
       </main>
     </Fragment>

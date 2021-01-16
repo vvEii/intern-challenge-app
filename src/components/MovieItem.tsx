@@ -4,11 +4,9 @@ interface Props {
   title: string;
   year: string;
   imdbID: string;
-  key: number;
 }
 
 export const MovieItem = (props: Props): React.ReactElement => {
-  console.log(props);
   return (
     <li>
       <p>{props.title}</p>
