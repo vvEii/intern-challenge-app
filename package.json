@@ -44,12 +44,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@nrwl/eslint-plugin-nx": "^11.1.5",
+    "@nrwl/nx": "^7.8.7",
+    "@nrwl/workspace": "^11.1.5",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0"
   }
 }
