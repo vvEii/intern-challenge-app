@@ -38,7 +38,7 @@ export const MoviesList = (props: Props): React.ReactElement => {
         props.movieList.map((movie, index) => (
           <div key={index}>
             <MovieItem {...movie} />
-            {isNominated(movie, props.nominationList) ? (
+            {isNominated(movie, props.nominationList) || props.nominationList.length === 5 ? (
               <button disabled className={'btn-disable'} onClick={() => nominate(movie)}>
                 Nominate
               </button>
