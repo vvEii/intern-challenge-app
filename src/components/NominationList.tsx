@@ -1,10 +1,10 @@
 import React from 'react';
-import { MovieItem } from './MovieItem';
+//import { MovieItem } from './MovieItem';
 
 export const NominationsList = (): React.ReactElement => {
   return (
     <ul>
-      <MovieItem />
+      {/* <MovieItem /> */}
       <button>Remove</button>
     </ul>
   );
