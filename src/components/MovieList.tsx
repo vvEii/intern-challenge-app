@@ -15,7 +15,7 @@ type Props = {
 
 export const MoviesList = (props: Props): React.ReactElement => {
   const term = props.term ? `for "${props.term}"` : '';
-  const nominate = (movie: Movie) => {
+  const nominate = (movie: Movie): void => {
     props.dispatch({ type: 'SET_NOMINATION', newMovie: movie });
   };
   return (

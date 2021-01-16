@@ -44,7 +44,7 @@ export const MovieSearch = (): React.ReactElement => {
         <SearchBar term={term} onChange={(term: string) => setTerm(term)} />
         <div className="list-container">
           <MoviesList term={term} movieList={state.movieList} dispatch={dispatch} />
-          <NominationList nominationList={state.nominationList} />
+          <NominationList nominationList={state.nominationList} dispatch={dispatch} />
         </div>
       </main>
     </Fragment>

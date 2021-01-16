@@ -9,16 +9,22 @@ type Movie = {
 
 type Props = {
   nominationList: Movie[];
+  dispatch: any;
 };
 
 export const NominationList = (props: Props): React.ReactElement => {
+  const remove = (movie: Movie): void => {
+    props.dispatch({ type: 'DELETE_NOMINATION', deletedMovie: movie });
+  };
+
   return (
     <ul>
+      <h4>Nominations</h4>
       {props.nominationList.length ? (
         props.nominationList.map((movie, index) => (
           <div key={index}>
             <MovieItem title={movie.title} year={movie.year} imdbID={movie.imdbID} />
-            <button>Remove</button>
+            <button onClick={() => remove(movie)}>Remove</button>
           </div>
         ))
       ) : (

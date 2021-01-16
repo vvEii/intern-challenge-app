@@ -9,9 +9,9 @@ interface Props {
 export const MovieItem = (props: Props): React.ReactElement => {
   return (
     <li>
-      <p>{props.title}</p>
-      <p>{props.year}</p>
-      <p>{props.imdbID}</p>
+      <p>Movie Title: {props.title}</p>
+      <p>Year: {props.year}</p>
+      <p>IMDbID: {props.imdbID}</p>
     </li>
   );
 };
