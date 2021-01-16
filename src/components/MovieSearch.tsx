@@ -4,7 +4,6 @@ import { MoviesList } from './MovieList';
 import { SearchBar } from './SearchBar';
 import { NominationList } from './NominationList';
 import { movieReducer } from '../reducer/movieReducer';
-import './MovieSearch.css';
 
 type Movie = {
   Title: string;
@@ -43,7 +42,12 @@ export const MovieSearch = (): React.ReactElement => {
       <main>
         <SearchBar term={term} onChange={(term: string) => setTerm(term)} />
         <div className="list-container">
-          <MoviesList term={term} movieList={state.movieList} dispatch={dispatch} />
+          <MoviesList
+            term={term}
+            movieList={state.movieList}
+            nominationList={state.nominationList}
+            dispatch={dispatch}
+          />
           <NominationList nominationList={state.nominationList} dispatch={dispatch} />
         </div>
       </main>

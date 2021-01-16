@@ -23,7 +23,7 @@ export const NominationList = (props: Props): React.ReactElement => {
       {props.nominationList.length ? (
         props.nominationList.map((movie, index) => (
           <div key={index}>
-            <MovieItem title={movie.title} year={movie.year} imdbID={movie.imdbID} />
+            <MovieItem {...movie} />
             <button onClick={() => remove(movie)}>Remove</button>
           </div>
         ))

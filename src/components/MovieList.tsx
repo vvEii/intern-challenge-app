@@ -10,7 +10,19 @@ type Movie = {
 type Props = {
   term: string;
   movieList: Movie[];
+  nominationList: Movie[];
   dispatch: any;
+};
+
+// helper function to check is current movie nominated
+const isNominated = (movie: Movie, nominationList: Movie[]): boolean => {
+  let isNominated = false;
+  nominationList.map((nominatedMovie) => {
+    if (nominatedMovie.imdbID === movie.imdbID) {
+      isNominated = true;
+    }
+  });
+  return isNominated;
 };
 
 export const MoviesList = (props: Props): React.ReactElement => {
@@ -18,14 +30,23 @@ export const MoviesList = (props: Props): React.ReactElement => {
   const nominate = (movie: Movie): void => {
     props.dispatch({ type: 'SET_NOMINATION', newMovie: movie });
   };
+
   return (
     <ul>
       <h4>Result {term} </h4>
       {props.movieList.length ? (
         props.movieList.map((movie, index) => (
           <div key={index}>
-            <MovieItem title={movie.title} year={movie.year} imdbID={movie.imdbID} />
-            <button onClick={() => nominate(movie)}>Nominate</button>
+            <MovieItem {...movie} />
+            {isNominated(movie, props.nominationList) ? (
+              <button disabled className={'btn-disable'} onClick={() => nominate(movie)}>
+                Nominate
+              </button>
+            ) : (
+              <button className={'btn-nominate'} onClick={() => nominate(movie)}>
+                Nominate
+              </button>
+            )}
           </div>
         ))
       ) : (
