@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Intro
 
-This project is for intern chanllenge task, and it is a webpage that allows users to search movies by titles, and add or remove movies into or from their nomination list.
+This project is for intern chanllenge task which is a webpage built with React.js and Typescript that allows users to search movies by titles, and add or remove movies into or from their nomination list.
 
 ## Available Scripts
 
