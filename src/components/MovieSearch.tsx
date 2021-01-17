@@ -21,7 +21,9 @@ export const MovieSearch = (): React.ReactElement => {
   useEffect(() => {
     dispatch({ type: 'SET_MOVIE', movieList: [] });
     axios
-      .get(`http://www.omdbapi.com/?s=${term}&apikey=a9adfcbd&page=1&type=movie`)
+      .get(`http://www.omdbapi.com/?s=${term}&apikey=a9adfcbd&page=1&type=movie`, {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+      })
       .then((res) => {
         const movieList = res.data.Search.map((movie: Movie) => {
           const formattedMovie = {
