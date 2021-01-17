@@ -20,7 +20,7 @@ export const NominationList = (props: Props): React.ReactElement => {
   return (
     <ul>
       <h4>Nominations</h4>
-      {props.nominationList.length === 5 ? <h4>Already got maximum nomination number of 5.</h4> : <></>}
+      {props.nominationList.length === 5 ? <h4>Already got the maximum nomination number of 5.</h4> : <></>}
       {props.nominationList.length ? (
         props.nominationList.map((movie, index) => (
           <div key={index}>
