@@ -17,8 +17,24 @@ export const MovieSearch = (): React.ReactElement => {
   const intialState = { movieList: [], nominationList: [] };
   const [term, setTerm] = useState('');
   const [state, dispatch] = useReducer(movieReducer, intialState);
+  const NOMINATIONLIST = 'NOMINATIONLIST';
+
+  // save nomination list when user close the page
+  window.onbeforeunload = () => {
+    if (state.nominationList.length > 0){
+      localStorage.setItem(NOMINATIONLIST, JSON.stringify(state.nominationList));
+    }
+  }
+
+  window.onload = () => {
+    if(localStorage.getItem(NOMINATIONLIST)) {
+      const nominationList = JSON.parse(localStorage.getItem(NOMINATIONLIST)!);
+      dispatch({type:'SET_NOMINATIONLIST', nominationList});
+    }
+  }
 
   useEffect(() => {
+    //https://cors-anywhere.herokuapp.com/
     dispatch({ type: 'SET_MOVIE', movieList: [] });
     axios
       .get(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${term}&apikey=a9adfcbd&page=1&type=movie`)
