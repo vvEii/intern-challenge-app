@@ -55,7 +55,7 @@ export const MovieSearch = (): React.ReactElement => {
   return (
     <Fragment>
       <h2>The Shoppies</h2>
-      <a href="https://github.com/vvEii/intern-challenge-app">GitHub Repo Link</a>
+      <a href="https://github.com/vvEii/intern-challenge-app" target="_blank">GitHub Repo Link</a>
       <main>
         <SearchBar term={term} onChange={(term: string) => setTerm(term)} />
         <div className="list-container">
