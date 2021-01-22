@@ -14,6 +14,11 @@ type Props = {
 
 export const NominationList = (props: Props): React.ReactElement => {
   const remove = (movie: Movie): void => {
+    if(localStorage.getItem('NOMINATIONLIST')) {
+      let nominationList = JSON.parse(localStorage.getItem('NOMINATIONLIST')!)
+        .filter((movieLocalStorage:Movie) => movieLocalStorage.imdbID !== movie.imdbID)
+      localStorage.setItem('NOMINATIONLIST', JSON.stringify(nominationList));
+    }
     props.dispatch({ type: 'DELETE_NOMINATION', deletedMovie: movie });
   };
 
