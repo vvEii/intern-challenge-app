@@ -31,7 +31,7 @@ export const MovieSearch = (): React.ReactElement => {
   const fetchMovieByIDs = (imdbIDs: string[]) => {
     
     const urls = imdbIDs.map(id => {
-      return axios.get(`http://www.omdbapi.com/?i=${id}&apikey=a9adfcbd&page=1&type=movie`);
+      return axios.get(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=${id}&apikey=a9adfcbd&page=1&type=movie`);
     })
     Promise.all(urls)
     .then(res => {
@@ -81,7 +81,7 @@ export const MovieSearch = (): React.ReactElement => {
     //https://cors-anywhere.herokuapp.com/
     dispatch({ type: 'SET_MOVIE', movieList: [] });
     axios
-      .get(`http://www.omdbapi.com/?s=${term}&apikey=a9adfcbd&page=1&type=movie`)
+      .get(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${term}&apikey=a9adfcbd&page=1&type=movie`)
       .then((res) => {
         const movieList = res.data.Search.map((movie: Movie) => {
           const formattedMovie = {
